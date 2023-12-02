@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Sprache Lernen</string>
+    <string name="name"><font color="#00C3F0">Sprache</font> <font color="#00E880">Lernen</font></string>
+    <string name="terms">By Signing up you accept our <b><u>Terms of Services</u></b> &amp; <b><u>Privacy Policy</u></b></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>
