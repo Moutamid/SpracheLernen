@@ -28,11 +28,13 @@
             android:orientation="horizontal">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/speaking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
                 app:cardCornerRadius="15dp"
+                android:clickable="true"
                 app:strokeWidth="0dp"
                 app:cardBackgroundColor="@color/grey"
                 app:cardElevation="0dp">
@@ -67,6 +69,7 @@
                 android:layout_marginStart="8dp"
                 app:cardCornerRadius="15dp"
                 app:strokeWidth="0dp"
+                android:clickable="true"
                 app:cardBackgroundColor="@color/grey"
                 app:cardElevation="0dp">
 
@@ -107,6 +110,7 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
                 app:cardCornerRadius="15dp"
+                android:clickable="true"
                 app:strokeWidth="0dp"
                 app:cardBackgroundColor="@color/grey"
                 app:cardElevation="0dp">
@@ -139,6 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
+                android:clickable="true"
                 app:cardCornerRadius="15dp"
                 app:strokeWidth="0dp"
                 app:cardBackgroundColor="@color/grey"
@@ -180,20 +185,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cornerRadius="16dp"
-            android:layout_marginTop="10dp"
             android:padding="16dp"
-            android:text="A1-B1 Learn Language"
-            android:gravity="start"
-            android:textSize="16sp"
-            app:icon="@drawable/graduate"
-            app:iconGravity="end" />
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cornerRadius="16dp"
             android:layout_marginTop="10dp"
-            android:padding="16dp"
             app:backgroundTint="@color/grey"
             android:text="Model Papers B1"
             android:textColor="@color/black"
@@ -203,24 +196,16 @@
              app:icon="@drawable/documets"
             app:iconGravity="end" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Master Grammer with Ease!"
-            android:layout_marginTop="16dp"
-            android:textSize="16sp" />
-
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cornerRadius="16dp"
-            android:layout_marginTop="10dp"
             android:padding="16dp"
-            app:backgroundTint="@color/grey"
-            android:text="Learn Grammer"
-            android:textColor="@color/black"
+            android:text="A1-B1 Grammar Exercises"
             android:gravity="start"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:icon="@drawable/graduate"
+            app:iconGravity="end" />
 
     </LinearLayout>
 

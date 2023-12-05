@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_menu_view"
     tools:showIn="navigation_view">
 
@@ -13,7 +14,7 @@
         android:icon="@drawable/setting"
         android:title="Settings" />
 
-    <item android:title="">
+    <item android:title="Account">
         <menu>
             <item
                 android:id="@+id/nav_privacy"
@@ -22,7 +23,13 @@
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/logout"
-                android:title="Logout" />
+                android:title="Logout">
+
+                <SpannableString>
+                    <font color="#FF0000">Logout</font>
+                </SpannableString>
+
+            </item>
         </menu>
     </item>
 
