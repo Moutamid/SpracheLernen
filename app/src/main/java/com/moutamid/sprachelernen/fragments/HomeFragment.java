@@ -1,5 +1,6 @@
 package com.moutamid.sprachelernen.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.moutamid.sprachelernen.R;
+import com.moutamid.sprachelernen.activities.LevelSelectionActivity;
 import com.moutamid.sprachelernen.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -21,6 +23,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(getLayoutInflater(), container, false);
 
+        binding.level.setOnClickListener(v -> startActivity(new Intent(requireContext(), LevelSelectionActivity.class)));
 
         return binding.getRoot();
     }

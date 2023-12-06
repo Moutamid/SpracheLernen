@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:paddingTop="18dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        android:layout_marginStart="21dp"
+        android:clickable="true"
+        app:cardBackgroundColor="@color/white"
+        app:strokeWidth="0dp"
+        app:cardElevation="0dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_close" />
+
+    </com.google.android.material.card.MaterialCardView>
+    
+    
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/track"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:progress="30"
+        app:trackColor="@color/grey"
+        app:indicatorColor="@color/greenDark"
+        app:trackCornerRadius="100dp"
+        app:trackThickness="21dp"
+        android:layout_marginEnd="12dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginEnd="21dp"
+        tools:text="10/40" />
+
+</LinearLayout>

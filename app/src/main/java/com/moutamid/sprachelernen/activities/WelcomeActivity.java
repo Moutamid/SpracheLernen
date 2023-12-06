@@ -19,7 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
         binding.create.setOnClickListener(v -> {
             startActivity(new Intent(this, SignupActivity.class));
         });
-        binding.create.setOnClickListener(v -> {
+        binding.login.setOnClickListener(v -> {
             startActivity(new Intent(this, LoginActivity.class));
         });
 

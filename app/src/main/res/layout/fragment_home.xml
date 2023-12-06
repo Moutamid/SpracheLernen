@@ -197,6 +197,7 @@
             app:iconGravity="end" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/level"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cornerRadius="16dp"

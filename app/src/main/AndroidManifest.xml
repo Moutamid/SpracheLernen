@@ -16,6 +16,24 @@
         android:theme="@style/Theme.SpracheLernen"
         tools:targetApi="31">
         <activity
+            android:name=".activities.TopicsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ExerciseListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LevelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LevelSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ExerciseQuestionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TrialQuestionActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SettingsActivity"
             android:exported="false" />
         <activity

@@ -27,6 +27,7 @@ public class SignupActivity extends AppCompatActivity {
 
         binding.create.setOnClickListener(v -> {
             if (valid()) {
+                Constants.showDialog();
                 Constants.auth().createUserWithEmailAndPassword(
                         binding.email.getEditText().getText().toString(),
                         binding.password.getEditText().getText().toString()
@@ -35,8 +36,7 @@ public class SignupActivity extends AppCompatActivity {
                             binding.name.getEditText().getText().toString(),
                             binding.email.getEditText().getText().toString(),
                             binding.password.getEditText().getText().toString(),
-                            "ur", ""
-                            );
+                            "ur", "");
                     Constants.databaseReference().child(Constants.USER).child(Constants.auth().getCurrentUser().getUid())
                             .setValue(userModel).addOnSuccessListener(unused -> {
                                 Constants.dismissDialog();
@@ -80,7 +80,7 @@ public class SignupActivity extends AppCompatActivity {
             return false;
         }
         if (!binding.password.getEditText().getText().toString().equals(binding.rePassword.getEditText().getText().toString())) {
-            binding.rePassword.getEditText().setError("Password didn't match*");
+            Toast.makeText(this, "Password didn't match*", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

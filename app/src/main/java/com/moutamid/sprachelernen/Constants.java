@@ -33,6 +33,7 @@ public class Constants {
     static Dialog dialog;
     public static final String DATEFORMAT = "dd/MM/yyyy";
     public static final String USER = "USER";
+    public static final String LEVEL = "LEVEL";
     public static final String SHOW_TOOLBAR = "SHOW_TOOLBAR";
 
     public static String getFormattedDate(long date){
