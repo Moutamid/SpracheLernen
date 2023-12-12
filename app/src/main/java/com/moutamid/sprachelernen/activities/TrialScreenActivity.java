@@ -2,6 +2,7 @@ package com.moutamid.sprachelernen.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.moutamid.sprachelernen.Constants;
@@ -17,6 +18,9 @@ public class TrialScreenActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         Constants.checkApp(this);
 
+        binding.next.setOnClickListener(v -> {
+            startActivity(new Intent(this, TrialQuestionActivity.class));
+        });
 
     }
 }

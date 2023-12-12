@@ -34,15 +34,10 @@
         android:layout_below="@+id/back"
         android:fillViewport="true">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="21dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@id/bottom"
+                android:layout_height="wrap_content"
+                android:padding="21dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -98,28 +93,35 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Premium Content"
-                        android:textSize="16sp" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Support Content"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Make learning free for all the users and support in making new content."
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/dimond" />
+                        app:tint="@color/black"
+                        android:src="@drawable/graduate" />
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Access advanced lessons and specialized content."
-                    android:textSize="13sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -128,38 +130,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/stroke" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Offline Learning"
-                        android:textSize="16sp" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_round_offline_pin" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Download lessons and practice anytime, anywhere."
-                    android:textSize="13sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_marginHorizontal="40dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@drawable/stroke" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -208,7 +179,7 @@
                                     android:layout_marginEnd="55dp"
                                     android:layout_weight="1"
                                     android:gravity="end"
-                                    android:text="$39.99/year"
+                                    android:text="€130/year"
                                     android:textSize="16sp"
                                     android:textStyle="bold" />
 
@@ -218,7 +189,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Dive deep into language mastery with a yearly subscription."
+                                android:text="Our best plan at the best price and maximum benefit (Renewal for €50 for another 6 months)."
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -250,7 +221,7 @@
                 </RelativeLayout>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/monthly"
+                    android:id="@+id/half"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -276,7 +247,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Monthly Plan"
+                                android:text="6 Months Plan"
                                 android:textSize="16sp" />
 
                             <TextView
@@ -284,7 +255,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="end"
-                                android:text="$9.99/month"
+                                android:text="€100/6 month"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -294,7 +265,59 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Commitment-free learning at your pace."
+                            android:text="Flexible plan for 6 months. Renew for another 6 month after the end of the period for €50."
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:cardBackgroundColor="@color/grey"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/grey"
+                    app:strokeWidth="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="3 Months Plan"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:text="€90/month"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Commitment free and flexibility with a monthly plan. Renew again for another 3 months for €60."
                             android:textSize="13sp" />
 
                     </LinearLayout>
@@ -309,34 +332,30 @@
                     android:text="Cancel Any Time"
                     android:textSize="14sp" />
 
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/bottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="12dp"
-                android:orientation="vertical">
-
-                <TextView
+                <LinearLayout
+                    android:id="@+id/bottom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="We prioritize your security. Enjoy a seamless and secure payment process."
-                    android:textSize="14sp" />
+                    android:layout_marginTop="35dp"
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/start"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Start Learning Now"
-                    android:textSize="16sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="We prioritize your security. Enjoy a seamless and secure payment process."
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/start"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Start Learning Now"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
-
-        </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
 
