@@ -33,7 +33,20 @@ public class Constants {
     static Dialog dialog;
     public static final String DATEFORMAT = "dd/MM/yyyy";
     public static final String USER = "USER";
+    public static final String STASH_USER = "STASH_USER";
+    public static final String TOPIC_ID = "TOPIC_ID";
     public static final String LEVEL = "LEVEL";
+    public static final String TOPIC = "TOPIC";
+    public static final String SELECT = "SELECT";
+    public static final String TOPICS = "TOPICS";
+    public static final String URDU = "URDU";
+    public static final String CONTENT = "CONTENT";
+    public static final String EXERCISE = "EXERCISE";
+    public static final String PASS = "PASS";
+    public static final String Speaking = "Speaking";
+    public static final String Reading = "Reading";
+    public static final String Vocabulary = "Vocabulary";
+    public static final String Writing = "Writing";
     public static final String SHOW_TOOLBAR = "SHOW_TOOLBAR";
 
     public static String getFormattedDate(long date){

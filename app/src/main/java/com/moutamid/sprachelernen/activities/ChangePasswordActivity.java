@@ -32,16 +32,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 user.reauthenticate(authCredential).addOnSuccessListener(unused -> {
                     user.updatePassword(binding.newPassword.getEditText().getText().toString())
                             .addOnSuccessListener(unused1 -> {
-//                                firestore.collection("Users").document(user.getEmail())
-//                                        .update("password", binding.etNewPass.getEditText().getText().toString())
-//                                        .addOnSuccessListener(unused2 -> {
-//                                            Constants.dismissDialog();
-//                                            Toast.makeText(this, "Password Updated Successfully", Toast.LENGTH_SHORT).show();
-//                                        })
-//                                        .addOnFailureListener(e -> {
-//                                            Constants.dismissDialog();
-//                                            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
-//                                        });
+                                Constants.dismissDialog();
+                                Toast.makeText(this, "Password Updated Successfully", Toast.LENGTH_SHORT).show();
                             })
                             .addOnFailureListener(e -> {
                                 Constants.dismissDialog();

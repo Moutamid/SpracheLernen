@@ -2,65 +2,90 @@ package com.moutamid.sprachelernen.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.fxn.stash.Stash;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
+import com.moutamid.sprachelernen.adapters.TopicsListAdapter;
+import com.moutamid.sprachelernen.databinding.FragmentTopicsBinding;
+import com.moutamid.sprachelernen.models.TopicsModel;
+import com.moutamid.sprachelernen.models.UserModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TopicsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class TopicsFragment extends Fragment {
+    FragmentTopicsBinding binding;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    ArrayList<TopicsModel> list;
 
     public TopicsFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TopicsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TopicsFragment newInstance(String param1, String param2) {
-        TopicsFragment fragment = new TopicsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentTopicsBinding.inflate(getLayoutInflater(), container, false);
+
+        binding.topicsRC.setHasFixedSize(false);
+        binding.topicsRC.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+        list = new ArrayList<>();
+
+        return binding.getRoot();
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    private String getLanguage() {
+        UserModel userModel = (UserModel) Stash.getObject(Constants.STASH_USER, UserModel.class);
+
+        String lang = Constants.URDU;
+
+        if (userModel.getLanguage().equals("ur")){
+            lang = Constants.URDU;
         }
+
+        return lang;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_topics, container, false);
+    public void onResume() {
+        super.onResume();
+        Constants.initDialog(requireContext());
+        Constants.showDialog();
+        String topic = Stash.getString(Constants.TOPIC, Constants.Speaking);
+        Constants.databaseReference().child(getLanguage()).child(Constants.TOPICS).child(topic).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Constants.dismissDialog();
+                if (snapshot.exists()) {
+                    list.clear();
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                        TopicsModel model = dataSnapshot.getValue(TopicsModel.class);
+                        list.add(model);
+                    }
+                    TopicsListAdapter adapter = new TopicsListAdapter(requireContext(), list);
+                    binding.topicsRC.setAdapter(adapter);
+                } else {
+                    Toast.makeText(requireContext(), "Nothing Found", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Constants.dismissDialog();
+                Toast.makeText(requireContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

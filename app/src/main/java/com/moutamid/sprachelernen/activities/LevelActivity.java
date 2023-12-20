@@ -28,9 +28,7 @@ public class LevelActivity extends AppCompatActivity {
         binding = ActivityLevelBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        String level = getIntent().getStringExtra(Constants.LEVEL);
-
-        binding.toolbar.title.setText(level);
+        binding.toolbar.title.setText("Topics");
         binding.toolbar.back.setOnClickListener(v -> onBackPressed());
 
         ViewPagerFragmentAdapter adapter = new ViewPagerFragmentAdapter(getSupportFragmentManager());

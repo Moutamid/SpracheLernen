@@ -17,13 +17,17 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import com.fxn.stash.Stash;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 import com.moutamid.sprachelernen.activities.LanguageSelectionActivity;
 import com.moutamid.sprachelernen.activities.ProfileEditActivity;
+import com.moutamid.sprachelernen.activities.SettingsActivity;
 import com.moutamid.sprachelernen.databinding.ActivityMainBinding;
 import com.moutamid.sprachelernen.fragments.HomeFragment;
+import com.moutamid.sprachelernen.models.UserModel;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -55,11 +59,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
-        updateNavHead(binding.navView);
-
     }
 
     private void updateNavHead(NavigationView navView) {
+        View Header = navView.getHeaderView(0);
+        TextView headerName = Header.findViewById(R.id.tv_nav_Name);
+        TextView headerEmail = Header.findViewById(R.id.tv_nav_yourEmail);
+
+        Constants.databaseReference().child(Constants.USER).child(Constants.auth().getCurrentUser().getUid())
+                .get().addOnSuccessListener(dataSnapshot -> {
+                   if (dataSnapshot.exists()){
+                       UserModel userModel = dataSnapshot.getValue(UserModel.class);
+                       Stash.put(Constants.STASH_USER, userModel);
+                       headerName.setText(userModel.getName());
+                       headerEmail.setText(userModel.getEmail());
+                   }
+                });
 
     }
 
@@ -112,6 +127,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (item.getItemId() == R.id.nav_language) {
             startActivity(new Intent(MainActivity.this, LanguageSelectionActivity.class).putExtra(Constants.SHOW_TOOLBAR, true));
             finish();
+        } else if (item.getItemId() == R.id.nav_setting) {
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+            finish();
+        } else if (item.getItemId() == R.id.nav_privacy) {
+
         }
 
         binding.drawLayout.closeDrawer(GravityCompat.START);
@@ -122,5 +142,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onResume() {
         super.onResume();
         Constants.initDialog(this);
+        updateNavHead(binding.navView);
     }
 }

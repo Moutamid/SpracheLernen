@@ -9,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.fxn.stash.Stash;
+import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
+import com.moutamid.sprachelernen.activities.LevelActivity;
 import com.moutamid.sprachelernen.activities.LevelSelectionActivity;
 import com.moutamid.sprachelernen.databinding.FragmentHomeBinding;
 
@@ -24,6 +27,22 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(getLayoutInflater(), container, false);
 
         binding.level.setOnClickListener(v -> startActivity(new Intent(requireContext(), LevelSelectionActivity.class)));
+        binding.speaking.setOnClickListener(v -> {
+            Stash.put(Constants.TOPIC, Constants.Speaking);
+            startActivity(new Intent(requireContext(), LevelActivity.class));
+        });
+        binding.writing.setOnClickListener(v -> {
+            Stash.put(Constants.TOPIC, Constants.Writing);
+            startActivity(new Intent(requireContext(), LevelActivity.class));
+        });
+        binding.reading.setOnClickListener(v -> {
+            Stash.put(Constants.TOPIC, Constants.Reading);
+            startActivity(new Intent(requireContext(), LevelActivity.class));
+        });
+        binding.vocabulary.setOnClickListener(v -> {
+            Stash.put(Constants.TOPIC, Constants.Vocabulary);
+            startActivity(new Intent(requireContext(), LevelActivity.class));
+        });
 
         return binding.getRoot();
     }
