@@ -25,7 +25,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_above="@id/check"
+                android:layout_above="@id/otherOptions"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -85,7 +85,6 @@
 
                 </RelativeLayout>
 
-
                 <TextView
                     android:id="@+id/isMultiple"
                     android:layout_width="match_parent"
@@ -101,56 +100,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:orientation="vertical" />
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/sortingLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
+                    android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
-                    <com.google.android.material.chip.ChipGroup
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/chipsRC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/orderChipGroup">
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="hello" />
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="hello" />
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="hello" />
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="hello" />
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="hello" />
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="hello" />
-
-                    </com.google.android.material.chip.ChipGroup>
+                        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                        app:spanCount="3"
+                        android:orientation="vertical"
+                        tools:listitem="@layout/chips"/>
 
                     <View
                         android:layout_width="match_parent"
-                        android:background="@drawable/stroke_dash"
-                        android:layout_height="2dp" />
+                        android:layout_height="2dp"
+                        android:background="@drawable/stroke_dash" />
 
                 </LinearLayout>
 
@@ -158,19 +132,20 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/otherOptions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@id/check"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/optionsRC"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-
-
-                </LinearLayout>
+                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                    app:spanCount="2"
+                    android:orientation="vertical"
+                    tools:listitem="@layout/options" />
 
             </LinearLayout>
 

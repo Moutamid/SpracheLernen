@@ -46,25 +46,13 @@ public class TopicsFragment extends Fragment {
         return binding.getRoot();
     }
 
-    private String getLanguage() {
-        UserModel userModel = (UserModel) Stash.getObject(Constants.STASH_USER, UserModel.class);
-
-        String lang = Constants.URDU;
-
-        if (userModel.getLanguage().equals("ur")){
-            lang = Constants.URDU;
-        }
-
-        return lang;
-    }
-
     @Override
     public void onResume() {
         super.onResume();
         Constants.initDialog(requireContext());
         Constants.showDialog();
         String topic = Stash.getString(Constants.TOPIC, Constants.Speaking);
-        Constants.databaseReference().child(getLanguage()).child(Constants.TOPICS).child(topic).addValueEventListener(new ValueEventListener() {
+        Constants.databaseReference().child(Constants.getLanguage()).child(Constants.TOPICS).child(topic).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Constants.dismissDialog();

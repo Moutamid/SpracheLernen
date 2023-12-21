@@ -1,11 +1,13 @@
 package com.moutamid.sprachelernen;
 
+import com.fxn.stash.Stash;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.moutamid.sprachelernen.R;
+import com.moutamid.sprachelernen.models.UserModel;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -67,6 +69,18 @@ public class Constants {
 
     public static void dismissDialog(){
         dialog.dismiss();
+    }
+
+    public static String getLanguage() {
+        UserModel userModel = (UserModel) Stash.getObject(Constants.STASH_USER, UserModel.class);
+
+        String lang = Constants.URDU;
+
+        if (userModel.getLanguage().equals("ur")){
+            lang = Constants.URDU;
+        }
+
+        return lang;
     }
 
     public static void checkApp(Activity activity) {

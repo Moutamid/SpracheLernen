@@ -31,7 +31,7 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        UserModel userModel = (UserModel) Stash.getObject(Constants.USER, UserModel.class);
+        UserModel userModel = (UserModel) Stash.getObject(Constants.STASH_USER, UserModel.class);
         Glide.with(this).load(userModel.getImage()).placeholder(R.drawable.profile_icon).into(binding.profile);
         binding.username.setText(userModel.getName());
         binding.email.setText(userModel.getEmail());

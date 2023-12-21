@@ -32,7 +32,8 @@ public class SignupActivity extends AppCompatActivity {
                         binding.email.getEditText().getText().toString(),
                         binding.password.getEditText().getText().toString()
                 ).addOnSuccessListener(authResult -> {
-                    UserModel userModel = new UserModel(authResult.getUser().getUid(),
+                    UserModel userModel = new UserModel(
+                            authResult.getUser().getUid(),
                             binding.name.getEditText().getText().toString(),
                             binding.email.getEditText().getText().toString(),
                             binding.password.getEditText().getText().toString(),
@@ -40,7 +41,7 @@ public class SignupActivity extends AppCompatActivity {
                     Constants.databaseReference().child(Constants.USER).child(Constants.auth().getCurrentUser().getUid())
                             .setValue(userModel).addOnSuccessListener(unused -> {
                                 Constants.dismissDialog();
-                                Stash.put(Constants.USER, userModel);
+                                Stash.put(Constants.STASH_USER, userModel);
                                 startActivity(new Intent(this, LanguageSelectionActivity.class).putExtra(Constants.SHOW_TOOLBAR, false));
                                 finish();
                             }).addOnFailureListener(e -> {

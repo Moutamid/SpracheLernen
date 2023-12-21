@@ -16,6 +16,9 @@
         android:theme="@style/Theme.SpracheLernen"
         tools:targetApi="31">
         <activity
+            android:name=".activities.CongratulationActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.TopicsActivity"
             android:exported="false" />
         <activity
