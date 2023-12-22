@@ -18,11 +18,11 @@ import com.moutamid.sprachelernen.models.TopicsModel;
 
 import java.util.ArrayList;
 
-public class TopicsListAdapter extends RecyclerView.Adapter<TopicsListAdapter.TopicVH> {
+public class OptionsListAdapter extends RecyclerView.Adapter<OptionsListAdapter.TopicVH> {
     Context context;
-    ArrayList<TopicsModel> list;
+    ArrayList<String> list;
 
-    public TopicsListAdapter(Context context, ArrayList<TopicsModel> list) {
+    public OptionsListAdapter(Context context, ArrayList<String> list) {
         this.context = context;
         this.list = list;
     }
@@ -30,17 +30,14 @@ public class TopicsListAdapter extends RecyclerView.Adapter<TopicsListAdapter.To
     @NonNull
     @Override
     public TopicVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new TopicVH(LayoutInflater.from(context).inflate(R.layout.item, parent, false));
+        return new TopicVH(LayoutInflater.from(context).inflate(R.layout.option_content, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull TopicVH holder, int position) {
-        TopicsModel model = list.get(holder.getAdapterPosition());
-        holder.name.setText(model.getTopicName());
-        holder.itemView.setOnClickListener(v -> {
-            Stash.put(Constants.TOPICS, model);
-            context.startActivity(new Intent(context, TopicsActivity.class));
-        });
+        String model = list.get(holder.getAdapterPosition());
+        holder.name.setText(model);
+        holder.counter.setText(""+(holder.getAdapterPosition()+1));
     }
 
     @Override
@@ -50,9 +47,11 @@ public class TopicsListAdapter extends RecyclerView.Adapter<TopicsListAdapter.To
 
     public class TopicVH extends RecyclerView.ViewHolder {
         TextView name;
+        TextView counter;
         public TopicVH(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.text);
+            counter = itemView.findViewById(R.id.counter);
         }
     }
 
