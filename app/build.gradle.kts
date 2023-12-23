@@ -38,6 +38,10 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
+    implementation("com.android.billingclient:billing:6.0.0")
+    implementation("androidx.preference:preference:1.2.0")
+    implementation("com.anjlab.android.iab.v3:library:2.0.0")
+
     implementation("com.google.firebase:firebase-database:20.3.0")
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.google.firebase:firebase-auth:22.3.0")

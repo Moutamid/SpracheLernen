@@ -52,7 +52,10 @@ public class Constants {
     public static final String Writing = "Writing";
     public static final String SHOW_TOOLBAR = "SHOW_TOOLBAR";
     public static final String TRIAL_QUESTIONS = "TRIAL_QUESTIONS";
-
+    public static final String LICENSE_KEY = "";
+    public static final  String VIP_6_MONTH = "vip.six.month.com.moutamid.sprachelernen";
+    public static final  String VIP_3_MONTH = "vip.three.month.com.moutamid.sprachelernen";
+    public static final  String VIP_YEAR = "vip.year.com.moutamid.sprachelernen";
     public static String getFormattedDate(long date){
         return new SimpleDateFormat(DATEFORMAT, Locale.getDefault()).format(date);
     }
