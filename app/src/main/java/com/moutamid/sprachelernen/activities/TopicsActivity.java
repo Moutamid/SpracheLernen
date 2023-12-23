@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.window.OnBackInvokedDispatcher;
@@ -25,7 +28,7 @@ public class TopicsActivity extends AppCompatActivity {
     ActivityTopicsBinding binding;
     TopicsModel topic;
     ContentModel model;
-
+    private static final String TAG = "TopicsActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,30 +72,40 @@ public class TopicsActivity extends AppCompatActivity {
         }
         if (model.isHaveTable()) {
             binding.table.setVisibility(View.VISIBLE);
+            TableLayout tableLayout = new TableLayout(this);
+            tableLayout.setLayoutParams(new TableLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT));
             for (int i=0; i<model.getRows().size(); i++) {
                 String s = model.getRows().get(i);
                 s = s.replace(", ", ",");
                 String[] columns = s.split(",");
-                LinearLayout layout = new LinearLayout(this);
-                layout.setOrientation(LinearLayout.HORIZONTAL);
-                layout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                if (i%2 == 0) {
-                    layout.setBackgroundColor(getColor(R.color.grey));
-                } else {
-                    layout.setBackgroundColor(getColor(R.color.greenLight));
-                }
-                layout.setPadding(12,12,12,12);
-                binding.tableView.addView(layout);
+                TableRow tableRow = new TableRow(this);
+                tableRow.setLayoutParams(new TableRow.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT));
                 for (String col : columns) {
                     TextView textView = new TextView(this);
                     textView.setText(col);
-                    textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    textView.setLayoutParams(new TableRow.LayoutParams(
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
                     textView.setGravity(Gravity.CENTER);
-                    textView.setTextSize(16);
-                    textView.setPadding(12,12,12,12);
-                    layout.addView(textView);
+                    int size = i==0 ? 24 : 16;
+                    textView.setTextSize(size);
+                    textView.setPadding(21,21,21,21);
+                    tableRow.addView(textView);
                 }
+                if (i%2==0) {
+                    tableRow.setBackgroundColor(getColor(R.color.grey));
+                } else {
+                    tableRow.setBackgroundColor(getColor(R.color.greenLight));
+                }
+                tableLayout.addView(tableRow);
+                Log.d(TAG, "updateViews: tableLayout");
             }
+            binding.tableView.addView(tableLayout);
+            Log.d(TAG, "updateViews: added");
         }
     }
 

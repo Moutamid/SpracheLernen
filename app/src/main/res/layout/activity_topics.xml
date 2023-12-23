@@ -52,15 +52,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardBackgroundColor="@color/grey"
                 app:cardCornerRadius="16dp"
-                android:visibility="gone"
                 app:strokeWidth="0dp"
+                android:visibility="gone"
                 app:cardElevation="0dp">
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:fillViewport="true"
                     android:scrollbarSize="0dp">
 
                     <LinearLayout
@@ -68,7 +69,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-
 
 
                     </LinearLayout>

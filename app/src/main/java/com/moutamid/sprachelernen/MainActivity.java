@@ -7,18 +7,23 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.MenuItemCompat;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.fxn.stash.Stash;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
@@ -87,6 +92,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         CircleImageView profileImage = view.findViewById(R.id.toolbar_profile_image);
 
+        Constants.databaseReference().child(Constants.USER).child(Constants.auth().getCurrentUser().getUid())
+                .get().addOnSuccessListener(dataSnapshot -> {
+                    if (dataSnapshot.exists()){
+                        UserModel userModel = dataSnapshot.getValue(UserModel.class);
+                        Glide.with(MainActivity.this).load(userModel.getImage()).placeholder(R.drawable.profile_icon).into(profileImage);
+                    }
+                });
+
         profileImage.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, ProfileEditActivity.class));
         });
@@ -129,9 +142,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             finish();
         } else if (item.getItemId() == R.id.nav_setting) {
             startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-            finish();
         } else if (item.getItemId() == R.id.nav_privacy) {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.nav_Support) {
+            Uri mailtoUri = Uri.parse("mailto:example123@gmail.com" +
+                    "?subject=" + Uri.encode("Help & Support") +
+                    "&body=" + Uri.encode("Your Complain??"));
 
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, mailtoUri);
+            startActivity(emailIntent);
+        } else if (item.getItemId() == R.id.nav_Rate) {
+            Uri uri = Uri.parse("market://details?id=" + getPackageName());
+            Intent playStoreIntent = new Intent(Intent.ACTION_VIEW, uri);
+            try {
+                startActivity(playStoreIntent);
+            } catch (ActivityNotFoundException e) {
+                uri = Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName());
+                playStoreIntent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(playStoreIntent);
+            }
         }
 
         binding.drawLayout.closeDrawer(GravityCompat.START);
