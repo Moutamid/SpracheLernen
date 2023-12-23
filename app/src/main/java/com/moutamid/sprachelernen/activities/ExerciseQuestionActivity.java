@@ -50,6 +50,7 @@ public class ExerciseQuestionActivity extends AppCompatActivity implements TextT
         textToSpeech = new TextToSpeech(this, this);
 
         String level = getIntent().getStringExtra(Constants.LEVEL);
+        String exercise = getIntent().getStringExtra(Constants.exercise);
 
         binding.progressbar.close.setOnClickListener(v -> onBackPressed());
 
@@ -69,7 +70,8 @@ public class ExerciseQuestionActivity extends AppCompatActivity implements TextT
                         list.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             ExerciseModel model = snapshot.getValue(ExerciseModel.class);
-                            list.add(model);
+                            if (exercise.equals(model.getExerciseName()))
+                                list.add(model);
                         }
                         Collections.shuffle(list);
                         setView(counter);

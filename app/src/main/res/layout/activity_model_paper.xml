@@ -5,16 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activities.ExerciseListActivity">
+    tools:context=".activities.ModelPaperActivity">
 
     <include layout="@layout/toolbar" android:id="@+id/toolbar" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-        android:layout_margin="21dp"
-        tools:listitem="@layout/exercise_item"
-        android:id="@+id/exerixeRC" />
 
 </RelativeLayout>

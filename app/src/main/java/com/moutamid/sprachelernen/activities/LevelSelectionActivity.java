@@ -21,9 +21,9 @@ public class LevelSelectionActivity extends AppCompatActivity {
         binding.toolbar.title.setText("Learn Language");
         binding.toolbar.back.setOnClickListener(v -> onBackPressed());
 
-        binding.A1.setOnClickListener(v -> startActivity(new Intent(this, ExerciseQuestionActivity.class).putExtra(Constants.LEVEL, "A1")));
-        binding.A2.setOnClickListener(v -> startActivity(new Intent(this, ExerciseQuestionActivity.class).putExtra(Constants.LEVEL, "A2")));
-        binding.B1.setOnClickListener(v -> startActivity(new Intent(this, ExerciseQuestionActivity.class).putExtra(Constants.LEVEL, "B1")));
+        binding.A1.setOnClickListener(v -> startActivity(new Intent(this, ExerciseListActivity.class).putExtra(Constants.LEVEL, "A1")));
+        binding.A2.setOnClickListener(v -> startActivity(new Intent(this, ExerciseListActivity.class).putExtra(Constants.LEVEL, "A2")));
+        binding.B1.setOnClickListener(v -> startActivity(new Intent(this, ExerciseListActivity.class).putExtra(Constants.LEVEL, "B1")));
 
     }
 }

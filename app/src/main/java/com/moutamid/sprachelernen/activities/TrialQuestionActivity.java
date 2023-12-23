@@ -40,6 +40,7 @@ public class TrialQuestionActivity extends AppCompatActivity {
     ChipsAdapter chipsAdapter;
     OptionsAdapter optionsAdapter;
     RadioGroup radioGroup;
+    boolean isChecked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class TrialQuestionActivity extends AppCompatActivity {
         sorting = new ArrayList<>();
         fIB = new ArrayList<>();
 
-        Constants.databaseReference().child(Constants.getLanguage()).child(Constants.TRIAL_QUESTIONS)
+        Constants.databaseReference().child(Constants.TRIAL_QUESTIONS)
                 .get().addOnSuccessListener(dataSnapshot -> {
                     Constants.dismissDialog();
                     if (dataSnapshot.exists()) {
@@ -94,7 +95,6 @@ public class TrialQuestionActivity extends AppCompatActivity {
             } else {
                 checkRadio(model);
             }
-
             if (counter < list.size() - 1) {
                 setView(counter + 1);
             } else {
