@@ -48,7 +48,7 @@ public class Constants {
     public static final String PASS = "PASS";
     public static final String Speaking = "Speaking";
     public static final String Reading = "Reading";
-    public static final String Vocabulary = "Vocabulary";
+    public static final String VOCABULARY = "VOCABULARY";
     public static final String Writing = "Writing";
     public static final String SHOW_TOOLBAR = "SHOW_TOOLBAR";
     public static final String TRIAL_QUESTIONS = "TRIAL_QUESTIONS";

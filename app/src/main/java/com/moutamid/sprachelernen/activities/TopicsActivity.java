@@ -17,6 +17,7 @@ import android.widget.Toast;
 import android.window.OnBackInvokedDispatcher;
 
 import com.fxn.stash.Stash;
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.adapters.OptionsListAdapter;
@@ -24,7 +25,7 @@ import com.moutamid.sprachelernen.databinding.ActivityTopicsBinding;
 import com.moutamid.sprachelernen.models.ContentModel;
 import com.moutamid.sprachelernen.models.TopicsModel;
 
-public class TopicsActivity extends AppCompatActivity {
+public class TopicsActivity extends BaseSecureActivity {
     ActivityTopicsBinding binding;
     TopicsModel topic;
     ContentModel model;

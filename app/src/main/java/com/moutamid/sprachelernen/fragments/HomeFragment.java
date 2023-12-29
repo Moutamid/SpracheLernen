@@ -14,6 +14,7 @@ import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.activities.LevelActivity;
 import com.moutamid.sprachelernen.activities.LevelSelectionActivity;
+import com.moutamid.sprachelernen.activities.VocabularyActivity;
 import com.moutamid.sprachelernen.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -40,8 +41,7 @@ public class HomeFragment extends Fragment {
             startActivity(new Intent(requireContext(), LevelActivity.class));
         });
         binding.vocabulary.setOnClickListener(v -> {
-            Stash.put(Constants.TOPIC, Constants.Vocabulary);
-            startActivity(new Intent(requireContext(), LevelActivity.class));
+            startActivity(new Intent(requireContext(), VocabularyActivity.class));
         });
 
         return binding.getRoot();

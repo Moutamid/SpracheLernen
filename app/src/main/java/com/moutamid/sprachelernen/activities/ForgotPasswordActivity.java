@@ -6,11 +6,12 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Toast;
 
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.databinding.ActivityForgotPasswordBinding;
 
-public class ForgotPasswordActivity extends AppCompatActivity {
+public class ForgotPasswordActivity extends BaseSecureActivity {
     ActivityForgotPasswordBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

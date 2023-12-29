@@ -8,12 +8,13 @@ import android.util.Patterns;
 import android.widget.Toast;
 
 import com.fxn.stash.Stash;
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.databinding.ActivitySignupBinding;
 import com.moutamid.sprachelernen.models.UserModel;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends BaseSecureActivity {
     ActivitySignupBinding binding;
 
     @Override

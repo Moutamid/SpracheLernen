@@ -9,7 +9,7 @@ import android.os.Handler;
 import com.moutamid.sprachelernen.activities.TrialScreenActivity;
 import com.moutamid.sprachelernen.activities.WelcomeActivity;
 
-public class SplashScreenActivity extends AppCompatActivity {
+public class SplashScreenActivity extends BaseSecureActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

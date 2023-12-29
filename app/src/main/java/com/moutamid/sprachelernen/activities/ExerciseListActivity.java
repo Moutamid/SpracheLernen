@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.adapters.ExerciseListAdapter;
@@ -19,7 +20,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ExerciseListActivity extends AppCompatActivity {
+public class ExerciseListActivity extends BaseSecureActivity {
     ActivityExerciseListBinding binding;
     ArrayList<ExerciseModel> list;
     String level;

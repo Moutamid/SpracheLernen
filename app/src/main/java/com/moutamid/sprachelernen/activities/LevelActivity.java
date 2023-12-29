@@ -12,6 +12,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import android.os.Bundle;
 
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.databinding.ActivityLevelBinding;
@@ -20,7 +21,7 @@ import com.moutamid.sprachelernen.fragments.VoiceOversFragment;
 
 import java.util.ArrayList;
 
-public class LevelActivity extends AppCompatActivity {
+public class LevelActivity extends BaseSecureActivity {
     ActivityLevelBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

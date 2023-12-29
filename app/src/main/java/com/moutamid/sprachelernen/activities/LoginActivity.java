@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Toast;
 
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.MainActivity;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.databinding.ActivityLoginBinding;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseSecureActivity {
     ActivityLoginBinding binding;
 
     @Override

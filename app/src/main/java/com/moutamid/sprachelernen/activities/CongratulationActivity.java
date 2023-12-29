@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.databinding.ActivityCongratulationBinding;
 
-public class CongratulationActivity extends AppCompatActivity {
+public class CongratulationActivity extends BaseSecureActivity {
     ActivityCongratulationBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

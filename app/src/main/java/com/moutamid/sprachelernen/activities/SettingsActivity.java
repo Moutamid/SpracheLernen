@@ -7,12 +7,13 @@ import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
 import com.fxn.stash.Stash;
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.databinding.ActivitySettingsBinding;
 import com.moutamid.sprachelernen.models.UserModel;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends BaseSecureActivity {
     ActivitySettingsBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

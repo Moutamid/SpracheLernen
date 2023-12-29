@@ -5,10 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.databinding.ActivityWelcomeBinding;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends BaseSecureActivity {
     ActivityWelcomeBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

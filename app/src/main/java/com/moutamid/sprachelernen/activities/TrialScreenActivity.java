@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.databinding.ActivityTrialScreenBinding;
 
-public class TrialScreenActivity extends AppCompatActivity {
+public class TrialScreenActivity extends BaseSecureActivity {
     ActivityTrialScreenBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -16,6 +16,12 @@
         android:theme="@style/Theme.SpracheLernen"
         tools:targetApi="31">
         <activity
+            android:name=".activities.VocabularyContentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.VocabularyActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ModelPaperActivity"
             android:exported="false" />
         <activity

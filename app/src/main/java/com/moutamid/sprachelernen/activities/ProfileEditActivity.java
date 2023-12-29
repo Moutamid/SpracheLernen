@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.fxn.stash.Stash;
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.databinding.ActivityProfileEditBinding;
@@ -17,7 +18,7 @@ import com.moutamid.sprachelernen.models.UserModel;
 
 import java.util.UUID;
 
-public class ProfileEditActivity extends AppCompatActivity {
+public class ProfileEditActivity extends BaseSecureActivity {
     private static final int PICK_FROM_GALLERY = 1001;
     ActivityProfileEditBinding binding;
     UserModel userModel;

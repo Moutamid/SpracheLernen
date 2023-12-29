@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.MainActivity;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.databinding.ActivityLanguageSelectionBinding;
 
-public class LanguageSelectionActivity extends AppCompatActivity {
+public class LanguageSelectionActivity extends BaseSecureActivity {
     ActivityLanguageSelectionBinding binding;
     String selection = "ur";
     @Override

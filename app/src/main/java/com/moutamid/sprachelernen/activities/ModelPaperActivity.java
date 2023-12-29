@@ -5,10 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.databinding.ActivityModelPaperBinding;
 
-public class ModelPaperActivity extends AppCompatActivity {
+public class ModelPaperActivity extends BaseSecureActivity {
     ActivityModelPaperBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

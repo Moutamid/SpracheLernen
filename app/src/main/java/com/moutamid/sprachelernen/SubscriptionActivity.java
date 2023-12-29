@@ -12,7 +12,7 @@ import com.anjlab.android.iab.v3.PurchaseInfo;
 import com.moutamid.sprachelernen.activities.WelcomeActivity;
 import com.moutamid.sprachelernen.databinding.ActivitySubscriptionBinding;
 
-public class SubscriptionActivity extends AppCompatActivity implements BillingProcessor.IBillingHandler {
+public class SubscriptionActivity extends BaseSecureActivity implements BillingProcessor.IBillingHandler {
     ActivitySubscriptionBinding binding;
     String selectedPlan = Constants.VIP_YEAR;
     BillingProcessor bp;

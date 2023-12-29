@@ -3,19 +3,27 @@ package com.moutamid.sprachelernen.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.radiobutton.MaterialRadioButton;
 import com.google.firebase.database.DataSnapshot;
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.adapters.ChipsAdapter;
@@ -28,7 +36,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
 
-public class ExerciseQuestionActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class ExerciseQuestionActivity extends BaseSecureActivity implements TextToSpeech.OnInitListener {
     ActivityExerciseQuestionBinding binding;
     ArrayList<ExerciseModel> list;
     ArrayList<String> sorting;
@@ -97,18 +105,9 @@ public class ExerciseQuestionActivity extends AppCompatActivity implements TextT
             } else if (model.isOrder()) {
                 checkOrder(model);
             } else if (model.isFillBlank()) {
-                if (model.getRightAnswer().equalsIgnoreCase(fIB.get(0))) {
-                    correct += 1;
-                }
+                checkFillinBlank(model);
             } else {
                 checkRadio(model);
-            }
-
-            if (counter < list.size() - 1) {
-                setView(counter + 1);
-            } else {
-                startActivity(new Intent(this, CongratulationActivity.class).putExtra("correct", correct).putExtra("total", list.size()));
-                finish();
             }
         });
     }
@@ -207,23 +206,73 @@ public class ExerciseQuestionActivity extends AppCompatActivity implements TextT
 
     private void checkMCQs(ExerciseModel model) {
         String ans = model.getRightAnswer();
-        ans.replace(", ", ",");
+        ans = ans.replace(", ", ",");
         String out = "";
+        boolean check = false;
         for (int i = 0; i < binding.options.getChildCount(); i++) {
             View view = binding.options.getChildAt(i);
             if (view instanceof MaterialCheckBox) {
                 MaterialCheckBox checkBox = (MaterialCheckBox) view;
-                String enteredText = checkBox.getText().toString();
-                out += enteredText + ",";
+                if (checkBox.isChecked()) {
+                    String enteredText = checkBox.getText().toString();
+                    out += enteredText + ",";
+                }
             }
         }
+        Log.d("checkMCQs", "checkMCQs: " + out);
         out = out.substring(0, out.length() - 1);
+        Log.d("checkMCQs", "checkMCQs: " + out);
         if (out.equalsIgnoreCase(ans)) {
             correct += 1;
+            check = true;
         }
+        showDialog(check);
+    }
+
+    private void checkFillinBlank(ExerciseModel model) {
+        boolean check = false;
+        if (model.getRightAnswer().equalsIgnoreCase(fIB.get(0))) {
+            correct += 1;
+            check = true;
+        }
+        showDialog(check);
+    }
+
+
+    private void showDialog(boolean check) {
+        int view = check ? R.layout.result_correct : R.layout.result_incorrect;
+        ExerciseModel model = list.get(counter);
+
+        Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(view);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        dialog.show();
+
+        TextView correctAnswer = dialog.findViewById(R.id.correctAnswer);
+        TextView explanation = dialog.findViewById(R.id.explanation);
+        MaterialButton next = dialog.findViewById(R.id.next);
+
+        correctAnswer.setText(model.getRightAnswer());
+        explanation.setText(model.getExplanation());
+
+        next.setOnClickListener(v -> {
+            dialog.dismiss();
+            if (counter < list.size() - 1) {
+                setView(counter + 1);
+            } else {
+                startActivity(new Intent(this, CongratulationActivity.class).putExtra("correct", correct).putExtra("total", list.size()));
+                finish();
+            }
+        });
+
     }
 
     private void checkRadio(ExerciseModel model) {
+        boolean check = false;
         try {
             int checkedId = radioGroup.getCheckedRadioButtonId();
             if (checkedId != -1) {
@@ -232,6 +281,7 @@ public class ExerciseQuestionActivity extends AppCompatActivity implements TextT
                     String checkedText = checkedRadioButton.getText().toString();
                     if (checkedText.equalsIgnoreCase(model.getRightAnswer())) {
                         correct += 1;
+                        check = true;
                     }
                     Log.d("CheckedRadioButton", "Text: " + checkedText);
                 }
@@ -241,11 +291,13 @@ public class ExerciseQuestionActivity extends AppCompatActivity implements TextT
         } catch (Exception e) {
             e.printStackTrace();
         }
+        showDialog(check);
     }
 
     private void checkOrder(ExerciseModel model) {
+        boolean result = false;
         String ans = model.getRightAnswer();
-        ans.replace(", ", ",");
+        ans = ans.replace(", ", ",");
         String[] out = ans.split(",");
         try {
             boolean check = false;
@@ -258,11 +310,13 @@ public class ExerciseQuestionActivity extends AppCompatActivity implements TextT
                 }
                 if (!check) {
                     correct += 1;
+                    result = true;
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        showDialog(result);
     }
 
     @Override

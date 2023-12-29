@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.radiobutton.MaterialRadioButton;
 import com.google.firebase.database.DataSnapshot;
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.SubscriptionActivity;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.UUID;
 
-public class TrialQuestionActivity extends AppCompatActivity {
+public class TrialQuestionActivity extends BaseSecureActivity {
     ActivityTrialQuestionBinding binding;
     ArrayList<ExerciseModel> list;
     ArrayList<String> sorting;
