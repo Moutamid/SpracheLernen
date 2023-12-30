@@ -11,14 +11,81 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
+        android:id="@+id/buttons"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
         android:layout_margin="21dp"
-        tools:listitem="@layout/vocabulary_items"
+        android:background="@drawable/background"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/current"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/grey"
+                android:padding="12dp"
+                android:text="URDU"
+                android:textColor="@color/black"
+                app:cornerRadius="16dp" />
+
+            <View
+                android:id="@+id/indicator1"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginHorizontal="50dp"
+                android:background="@drawable/top_round"
+                android:backgroundTint="@color/red" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/german"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/grey"
+                android:padding="12dp"
+                android:text="German"
+                android:textColor="@color/black"
+                app:cornerRadius="16dp" />
+
+            <View
+                android:id="@+id/indicator2"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginHorizontal="50dp"
+                android:background="@drawable/top_round"
+                android:backgroundTint="@color/red"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/topics"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/buttons"
+        android:layout_marginHorizontal="21dp"
+        android:layout_marginBottom="21dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
-        android:id="@+id/topics"/>
+        tools:listitem="@layout/vocabulary_items" />
 
 </RelativeLayout>
