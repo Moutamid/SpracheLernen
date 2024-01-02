@@ -1,23 +1,23 @@
 package com.moutamid.sprachelernen;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
+import android.os.Build;
+import android.view.Window;
+
+import androidx.appcompat.app.AlertDialog;
+
 import com.fxn.stash.Stash;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.models.UserModel;
-
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.view.Window;
-
-import androidx.appcompat.app.AlertDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,14 +53,15 @@ public class Constants {
     public static final String SHOW_TOOLBAR = "SHOW_TOOLBAR";
     public static final String TRIAL_QUESTIONS = "TRIAL_QUESTIONS";
     public static final String LICENSE_KEY = "";
-    public static final  String VIP_6_MONTH = "vip.six.month.com.moutamid.sprachelernen";
-    public static final  String VIP_3_MONTH = "vip.three.month.com.moutamid.sprachelernen";
-    public static final  String VIP_YEAR = "vip.year.com.moutamid.sprachelernen";
-    public static String getFormattedDate(long date){
+    public static final String VIP_6_MONTH = "vip.six.month.com.moutamid.sprachelernen";
+    public static final String VIP_3_MONTH = "vip.three.month.com.moutamid.sprachelernen";
+    public static final String VIP_YEAR = "vip.year.com.moutamid.sprachelernen";
+
+    public static String getFormattedDate(long date) {
         return new SimpleDateFormat(DATEFORMAT, Locale.getDefault()).format(date);
     }
 
-    public static void initDialog(Context context){
+    public static void initDialog(Context context) {
         dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.loading_dialog);
@@ -68,18 +69,18 @@ public class Constants {
         dialog.setCancelable(false);
     }
 
-    public static void showDialog(){
+    public static void showDialog() {
         dialog.show();
     }
 
-    public static void dismissDialog(){
+    public static void dismissDialog() {
         dialog.dismiss();
     }
 
     public static String getLanguage() {
         UserModel userModel = (UserModel) Stash.getObject(Constants.STASH_USER, UserModel.class);
         String lang = Constants.URDU;
-        if (userModel.getLanguage().equals("ur")){
+        if (userModel.getLanguage().equals("ur")) {
             lang = Constants.URDU;
         }
         return lang;
@@ -143,6 +144,7 @@ public class Constants {
 
         }).start();
     }
+
     public static FirebaseAuth auth() {
         return FirebaseAuth.getInstance();
     }
@@ -158,4 +160,12 @@ public class Constants {
         return sr;
     }
 
+    public static boolean checkInternet(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
+            NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
+            return networkCapabilities != null && networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
+        }
+        return false;
+    }
 }

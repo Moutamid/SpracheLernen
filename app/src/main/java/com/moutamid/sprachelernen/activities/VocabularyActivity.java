@@ -12,6 +12,7 @@ import com.fxn.stash.Stash;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.adapters.ModelTopicsAdapter;
@@ -21,7 +22,7 @@ import com.moutamid.sprachelernen.models.TopicsModel;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class VocabularyActivity extends AppCompatActivity {
+public class VocabularyActivity extends BaseSecureActivity {
     ActivityVocabularyBinding binding;
     ArrayList<TopicsModel> list;
     @Override

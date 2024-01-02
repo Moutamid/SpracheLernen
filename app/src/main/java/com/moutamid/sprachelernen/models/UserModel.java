@@ -2,7 +2,6 @@ package com.moutamid.sprachelernen.models;
 
 public class UserModel {
     String ID, name, email, password, language, image;
-
     public UserModel() {
     }
 

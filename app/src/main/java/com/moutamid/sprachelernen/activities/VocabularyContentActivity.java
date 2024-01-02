@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.moutamid.sprachelernen.BaseSecureActivity;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.adapters.VocabularyAdapter;
 import com.moutamid.sprachelernen.databinding.ActivityVocabularyContentBinding;
@@ -18,7 +19,7 @@ import com.moutamid.sprachelernen.models.VocabularyModel;
 
 import java.util.ArrayList;
 
-public class VocabularyContentActivity extends AppCompatActivity {
+public class VocabularyContentActivity extends BaseSecureActivity {
     ActivityVocabularyContentBinding binding;
     String ID;
     ArrayList<VocabularyModel> list;
