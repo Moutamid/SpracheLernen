@@ -15,6 +15,7 @@ import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.activities.LevelActivity;
 import com.moutamid.sprachelernen.activities.LevelSelectionActivity;
 import com.moutamid.sprachelernen.activities.VocabularyActivity;
+import com.moutamid.sprachelernen.activities.WritingActivity;
 import com.moutamid.sprachelernen.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -33,8 +34,7 @@ public class HomeFragment extends Fragment {
             startActivity(new Intent(requireContext(), LevelActivity.class));
         });
         binding.writing.setOnClickListener(v -> {
-            Stash.put(Constants.TOPIC, Constants.Writing);
-            startActivity(new Intent(requireContext(), LevelActivity.class));
+            startActivity(new Intent(requireContext(), WritingActivity.class));
         });
         binding.reading.setOnClickListener(v -> {
             Stash.put(Constants.TOPIC, Constants.Reading);

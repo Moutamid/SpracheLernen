@@ -35,6 +35,7 @@ public class Constants {
     static Dialog dialog;
     public static final String DATEFORMAT = "dd/MM/yyyy";
     public static final String USER = "USER";
+    public static final String ID = "ID";
     public static final String STASH_USER = "STASH_USER";
     public static final String TOPIC_ID = "TOPIC_ID";
     public static final String LEVEL = "LEVEL";
@@ -49,7 +50,7 @@ public class Constants {
     public static final String Speaking = "Speaking";
     public static final String Reading = "Reading";
     public static final String VOCABULARY = "VOCABULARY";
-    public static final String Writing = "Writing";
+    public static final String WRITING = "WRITING";
     public static final String SHOW_TOOLBAR = "SHOW_TOOLBAR";
     public static final String TRIAL_QUESTIONS = "TRIAL_QUESTIONS";
     public static final String LICENSE_KEY = "";
