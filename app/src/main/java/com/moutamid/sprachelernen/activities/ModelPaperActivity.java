@@ -18,7 +18,7 @@ import com.moutamid.sprachelernen.fragments.VoiceOversFragment;
 
 import java.util.ArrayList;
 
-public class ModelPaperActivity extends BaseSecureActivity {
+public class ModelPaperActivity extends AppCompatActivity {
     ActivityModelPaperBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
