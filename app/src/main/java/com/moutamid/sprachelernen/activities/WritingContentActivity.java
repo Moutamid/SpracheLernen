@@ -1,17 +1,16 @@
 package com.moutamid.sprachelernen.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
-import com.moutamid.sprachelernen.adapters.VocabularyAdapter;
 import com.moutamid.sprachelernen.databinding.ActivityWritingContentBinding;
 import com.moutamid.sprachelernen.models.WritingModel;
 
@@ -30,7 +29,7 @@ public class WritingContentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityWritingContentBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        ID = getIntent().getStringExtra(Constants.TOPICS);
+        ID = getIntent().getStringExtra(Constants.ID);
         Constants.initDialog(this);
 
         mediaPlayer = new MediaPlayer();
@@ -104,9 +103,11 @@ public class WritingContentActivity extends AppCompatActivity {
 
     private void stopPlayer() {
         if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.reset();
-            mediaPlayer.release();
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+                mediaPlayer.reset();
+                mediaPlayer.release();
+            }
         }
     }
 
@@ -137,6 +138,7 @@ public class WritingContentActivity extends AppCompatActivity {
         binding.letter.setText(model.getLetter());
         Glide.with(this).load(R.drawable.pakistan).into(binding.flag);
     }
+
     private void updateGerman() {
         isGerman = true;
         binding.topic.setText(model.getGermanTopic());

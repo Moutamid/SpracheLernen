@@ -38,6 +38,11 @@ public class Constants {
     public static final String ID = "ID";
     public static final String STASH_USER = "STASH_USER";
     public static final String TOPIC_ID = "TOPIC_ID";
+    public static final String PAPER = "PAPER";
+    public static final String PAPER_1 = "PAPER_1";
+    public static final String PAPER_2 = "PAPER_2";
+    public static final String PAPER_3 = "PAPER_3";
+    public static final String PAPER_4 = "PAPER_4";
     public static final String LEVEL = "LEVEL";
     public static final String exercise = "exercise";
     public static final String TOPIC = "TOPIC";

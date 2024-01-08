@@ -7,6 +7,33 @@
     android:background="@color/white"
     tools:context=".activities.ModelPaperActivity">
 
-    <include layout="@layout/toolbar" android:id="@+id/toolbar" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:orientation="vertical"
+        android:padding="21dp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            app:tabIndicatorAnimationMode="elastic"
+            app:tabIndicatorColor="@color/red"
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextColor="@color/text" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="23dp" />
+
+    </LinearLayout>
 
 </RelativeLayout>

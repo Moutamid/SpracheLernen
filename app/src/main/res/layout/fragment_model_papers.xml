@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".fragments.ModelPapersFragment">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/paper1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Model Paper 1"
+        android:gravity="start|center"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/grey"
+        app:cornerRadius="12dp"
+        android:padding="12dp"
+        app:icon="@drawable/round_keyboard_arrow_right_24"
+        app:iconSize="26dp"
+        app:iconTint="@color/black"
+        app:iconGravity="end"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/paper2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Model Paper 2"
+        android:gravity="start|center"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/grey"
+        app:cornerRadius="12dp"
+        android:padding="12dp"
+        app:icon="@drawable/round_keyboard_arrow_right_24"
+        app:iconSize="26dp"
+        app:iconTint="@color/black"
+        app:iconGravity="end"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/paper3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Model Paper 3"
+        android:gravity="start|center"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/grey"
+        app:cornerRadius="12dp"
+        android:padding="12dp"
+        app:icon="@drawable/round_keyboard_arrow_right_24"
+        app:iconSize="26dp"
+        app:iconTint="@color/black"
+        app:iconGravity="end"/>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/paper4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Model Paper 4"
+        android:gravity="start|center"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/grey"
+        app:cornerRadius="12dp"
+        android:padding="12dp"
+        app:icon="@drawable/round_keyboard_arrow_right_24"
+        app:iconSize="26dp"
+        app:iconTint="@color/black"
+        app:iconGravity="end"/>
+
+</LinearLayout>

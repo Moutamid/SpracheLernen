@@ -14,6 +14,7 @@ import com.moutamid.sprachelernen.Constants;
 import com.moutamid.sprachelernen.R;
 import com.moutamid.sprachelernen.activities.LevelActivity;
 import com.moutamid.sprachelernen.activities.LevelSelectionActivity;
+import com.moutamid.sprachelernen.activities.ModelPaperActivity;
 import com.moutamid.sprachelernen.activities.VocabularyActivity;
 import com.moutamid.sprachelernen.activities.WritingActivity;
 import com.moutamid.sprachelernen.databinding.FragmentHomeBinding;
@@ -42,6 +43,9 @@ public class HomeFragment extends Fragment {
         });
         binding.vocabulary.setOnClickListener(v -> {
             startActivity(new Intent(requireContext(), VocabularyActivity.class));
+        });
+        binding.model.setOnClickListener(v -> {
+            startActivity(new Intent(requireContext(), ModelPaperActivity.class));
         });
 
         return binding.getRoot();

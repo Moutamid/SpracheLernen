@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activities.LevelActivity">
+    android:orientation="vertical"
+    tools:context=".activities.PDFActivity">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-    <FrameLayout
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/pdf"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-        android:layout_margin="21dp"
-        android:id="@+id/frame" />
+        android:layout_marginTop="10dp"/>
 
-</RelativeLayout>
+</LinearLayout>

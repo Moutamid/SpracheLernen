@@ -32,42 +32,8 @@ public class LevelActivity extends BaseSecureActivity {
         binding.toolbar.title.setText("Topics");
         binding.toolbar.back.setOnClickListener(v -> onBackPressed());
 
-        ViewPagerFragmentAdapter adapter = new ViewPagerFragmentAdapter(getSupportFragmentManager());
-        adapter.addFragment(new TopicsFragment(), "Topics List");
-        adapter.addFragment(new VoiceOversFragment(), "Voice Overs");
-        binding.viewPager.setAdapter(adapter);
-        binding.tabLayout.setupWithViewPager(binding.viewPager);
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new TopicsFragment()).commit();
 
-    }
-
-    public static class ViewPagerFragmentAdapter extends FragmentPagerAdapter {
-
-        private ArrayList<Fragment> fragmentList = new ArrayList<>();
-        private ArrayList<String> fragmentTitles = new ArrayList<>();
-
-        public ViewPagerFragmentAdapter(@NonNull FragmentManager fm) {
-            super(fm);
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            fragmentList.add(fragment);
-            fragmentTitles.add(title);
-        }
-
-        @Override
-        public int getCount() {
-            return fragmentList.size();
-        }
-
-        public CharSequence getPageTitle(int position) {
-            return fragmentTitles.get(position);
-        }
-
-        @NonNull
-        @Override
-        public Fragment getItem(int position) {
-            return fragmentList.get(position);
-        }
     }
 
 }

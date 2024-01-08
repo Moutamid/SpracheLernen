@@ -35,6 +35,8 @@ android {
 dependencies {
     implementation("com.fxn769:stash:1.3.2")
 
+    implementation("com.github.barteksc:android-pdf-viewer:2.8.2")
+
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
